@@ -1,0 +1,25 @@
+%DFT and IDFT
+clc;
+close all;
+N=input('Length of sequence=');
+x=input('The Sequence=');
+n=0:1:N-1;
+k=0:1:N-1;
+wN=exp(-1i*2*pi/N);
+nk=n.*k;
+wNnk=wN*nk;
+xk=x*wNnk;
+disp('xk=');
+disp(xk);
+mag=abs(xk);
+subplot(2,1,1);
+stem(k,mag);
+grid on;
+xlabel('--->k');ylabel('Magnitude');
+title('Magnitude of fourier transform');
+phase=angle(xk);
+subplot(2,1,2);
+stem(k,phase);
+grid on;
+xlabel('--->');ylabel('Phase');
+title('Phase of fourier transform');
